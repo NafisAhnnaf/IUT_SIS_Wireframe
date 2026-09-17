@@ -1,16 +1,16 @@
 # Islamic University of Technology (IUT) — Student Information System (SIS)
 ### SWE 4401: Software Requirements and Specifications (SRS)
-**Topic:** High-Fidelity Prototyping & Interaction Design Evaluation  
+**Topic:** High-Fidelity Prototyping & Wireframing  
 **Department:** Computer Science and Engineering (CSE)  
 **Program:** B.Sc. in Software Engineering  
 **Student ID:** 230042150 (Nafis Ahnaf Jamil)  
-**Target Platform:** Web / Single Page Application (SPA), Vercel-Ready  
+**Target Platform:** Web / Single Page Application (SPA) 
 
 ---
 
 ## 1. Project Overview & Academic Context
 
-This project represents a **High-Fidelity Interactive Prototype** developed within the scope of **SWE 4401: Software Requirements and Specifications**.
+This project represents a **High-Fidelity Interactive Prototype** developed within the scope of **SWE 4401: Software Requirements and Specifications** course.
 
 In traditional software engineering workflows, static wireframes and textual SRS documents frequently leave ambiguities regarding state transitions, validation boundaries, and micro-interactions. This high-fidelity prototype serves as an **executable specification** that bridges requirement engineering with real-world user experience (UX), allowing stakeholders (students, faculty advisors, academic registrars) to test, evaluate, and validate functional and non-functional requirements in a realistic production-grade environment before backend API integration.
 
