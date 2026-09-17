@@ -1,0 +1,11 @@
+{
+  "title": "IUT Student Information System | Portal",
+  "description": "Official Student Information System (SIS) for Islamic University of Technology (IUT), OIC. Course registration, class routine, exam admit cards, and academic records.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
