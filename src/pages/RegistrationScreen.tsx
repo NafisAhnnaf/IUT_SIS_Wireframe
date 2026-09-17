@@ -16,7 +16,7 @@ import {
 } from "../components/Icons"
 import { useToast } from "../context/ToastContext"
 
-export function RegistrationScreen() {
+export default function RegistrationScreen() {
   const { showToast } = useToast()
   const [courses, setCourses] =
     useState<RegistrationCourse[]>(REGISTRATION_COURSES)

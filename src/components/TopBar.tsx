@@ -17,7 +17,7 @@ const PAGE_LABELS: Record<Screen, string> = {
   "change-password": "Change Password",
 }
 
-export function TopBar({
+export default function TopBar({
   screen,
   onMenuClick,
   onOpenSearch,

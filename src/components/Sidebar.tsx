@@ -51,7 +51,7 @@ const NAV: NavItem[] = [
   { id: "change-password", label: "Change Password", icon: <IcoLock /> },
 ]
 
-export function Sidebar({
+export default function Sidebar({
   screen,
   onNav,
   onClose,

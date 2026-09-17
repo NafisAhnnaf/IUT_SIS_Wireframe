@@ -25,7 +25,7 @@ interface SearchResultItem {
   icon?: React.ReactNode
 }
 
-export function SearchModal({
+export default function SearchModal({
   isOpen,
   onClose,
   onNav,

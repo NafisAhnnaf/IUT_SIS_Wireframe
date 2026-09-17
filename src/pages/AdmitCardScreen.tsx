@@ -4,7 +4,7 @@ import { Card, PageHeader, SectionLabel } from "../components/SharedUI"
 import { IcoPrinter, IcoDownload, IcoCheck } from "../components/Icons"
 import { useToast } from "../context/ToastContext"
 
-export function AdmitCardScreen() {
+export default function AdmitCardScreen() {
   const { showToast } = useToast()
   const [downloaded, setDownloaded] = useState(false)
 

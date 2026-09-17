@@ -21,7 +21,11 @@ import {
 } from "../components/Icons"
 import CgpaTrendChart from "../components/CgpaTrendChart"
 
-export default function DashboardScreen({ onNav }: { onNav: (s: Screen) => void }) {
+export default function DashboardScreen({
+  onNav,
+}: {
+  onNav: (s: Screen) => void
+}) {
   // Find a sample next class from Sunday's schedule
   const nextClass = WEEKLY_ROUTINE[0] // Algorithms at 08:00 AM in Room E-301
 
@@ -140,48 +144,8 @@ export default function DashboardScreen({ onNav }: { onNav: (s: Screen) => void 
           </div>
         </div>
 
-        {/* GPA Progression Sparkline Card */}
-        <Card className="p-5 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <SectionLabel>GPA Trajectory</SectionLabel>
-              <span className="text-xs font-bold text-emerald-600">Upward</span>
-            </div>
-            <div className="space-y-1.5">
-              {SEMESTERS.slice()
-                .reverse()
-                .map((sem) => (
-                  <div
-                    key={sem.id}
-                    className="flex items-center justify-between text-xs"
-                  >
-                    <span className="text-slate-500 font-medium">
-                      Sem {sem.id}
-                    </span>
-                    <div className="flex-1 mx-3 h-2 bg-slate-100 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"
-                        style={{
-                          width: `${(parseFloat(sem.gpa) / 4.0) * 100}%`,
-                        }}
-                      />
-                    </div>
-                    <span className="font-extrabold text-[#0F172A] font-mono">
-                      {sem.gpa}
-                    </span>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          <button
-            onClick={() => onNav("result")}
-            className="text-[11px] font-bold text-[#1E3A8A] hover:underline mt-3 flex items-center justify-between pt-2 border-t border-slate-100"
-          >
-            <span>View Full Transcript</span>
-            <IcoChevronRight />
-          </button>
-        </Card>
+        {/* Interactive CGPA Trend Chart Component */}
+        <CgpaTrendChart onViewResults={() => onNav("result")} />
       </div>
 
       {/* NEW: Semester 5 Course Registration Action Banner */}

@@ -3,7 +3,7 @@ import { Card, PageHeader } from "../components/SharedUI"
 import { IcoEye } from "../components/Icons"
 import { useToast } from "../context/ToastContext"
 
-export function ChangePasswordScreen() {
+export default function ChangePasswordScreen() {
   const { showToast } = useToast()
   const [form, setForm] = useState({ current: "", next: "", confirm: "" })
   const [show, setShow] = useState({

@@ -21,7 +21,7 @@ const DAYS: DayOfWeek[] = [
   "Thursday",
 ]
 
-export function RoutineScreen() {
+export default function RoutineScreen() {
   const { showToast } = useToast()
   const [activeDay, setActiveDay] = useState<DayOfWeek | "All">("All")
   const [viewMode, setViewMode] = useState<"matrix" | "agenda">("matrix")

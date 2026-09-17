@@ -1,59 +1,60 @@
-import React, { useState } from "react";
-import { SEMESTERS, STUDENT } from "../data/mockData";
-import { Card, SectionLabel } from "./SharedUI";
-import { IcoChevronRight } from "./Icons";
+import React, { useState } from "react"
+import { SEMESTERS, STUDENT } from "../data/mockData"
+import { Card, SectionLabel } from "./SharedUI"
+import { IcoChevronRight } from "./Icons"
 
 export default function CgpaTrendChart({
   onViewResults,
 }: {
-  onViewResults?: () => void;
+  onViewResults?: () => void
 }) {
-  const [activeSemIndex, setActiveSemIndex] = useState<number | null>(null);
+  const [activeSemIndex, setActiveSemIndex] = useState<number | null>(null)
 
   // Semesters chronological order: Sem 1 to Sem 4
-  const data = [...SEMESTERS].sort((a, b) => a.id - b.id);
-  const minGpa = 3.2;
-  const maxGpa = 4.0;
+  const data = [...SEMESTERS].sort((a, b) => a.id - b.id)
+  const minGpa = 3.2
+  const maxGpa = 4.0
 
   // SVG dimensions
-  const width = 360;
-  const height = 120;
-  const paddingX = 35;
-  const paddingY = 20;
+  const width = 360
+  const height = 120
+  const paddingX = 35
+  const paddingY = 20
 
   const getX = (index: number) => {
-    return paddingX + (index / (data.length - 1)) * (width - paddingX * 2);
-  };
+    return paddingX + (index / (data.length - 1)) * (width - paddingX * 2)
+  }
 
   const getY = (gpa: number) => {
-    const ratio = (gpa - minGpa) / (maxGpa - minGpa);
-    return height - paddingY - ratio * (height - paddingY * 2);
-  };
+    const ratio = (gpa - minGpa) / (maxGpa - minGpa)
+    return height - paddingY - ratio * (height - paddingY * 2)
+  }
 
   const points = data.map((sem, i) => ({
     x: getX(i),
     y: getY(parseFloat(sem.gpa)),
     sem,
-  }));
+  }))
 
   const pathD = points.reduce((acc, p, i) => {
-    if (i === 0) return `M ${p.x} ${p.y}`;
+    if (i === 0) return `M ${p.x} ${p.y}`
     // Bezier control point for smooth curve
-    const prev = points[i - 1];
-    const cx1 = prev.x + (p.x - prev.x) / 2;
-    const cy1 = prev.y;
-    const cx2 = prev.x + (p.x - prev.x) / 2;
-    const cy2 = p.y;
-    return `${acc} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${p.x} ${p.y}`;
-  }, "");
+    const prev = points[i - 1]
+    const cx1 = prev.x + (p.x - prev.x) / 2
+    const cy1 = prev.y
+    const cx2 = prev.x + (p.x - prev.x) / 2
+    const cy2 = p.y
+    return `${acc} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${p.x} ${p.y}`
+  }, "")
 
   // Area under curve for gradient fill
-  const areaD = `${pathD} L ${points[points.length - 1].x} ${height - paddingY} L ${points[0].x} ${height - paddingY} Z`;
+  const areaD = `${pathD} L ${points[points.length - 1].x} ${height - paddingY} L ${points[0].x} ${height - paddingY} Z`
 
   // Dean's list threshold line (3.75)
-  const deansListY = getY(3.75);
+  const deansListY = getY(3.75)
 
-  const activeSem = activeSemIndex !== null ? data[activeSemIndex] : data[data.length - 1];
+  const activeSem =
+    activeSemIndex !== null ? data[activeSemIndex] : data[data.length - 1]
 
   return (
     <Card className="p-5 flex flex-col justify-between">
@@ -79,7 +80,9 @@ export default function CgpaTrendChart({
             </p>
           </div>
           <span className="text-[10px] text-indigo-600 font-bold">
-            {parseFloat(activeSem.gpa) >= 3.75 ? "★ Dean's Honor Roll" : "In Good Standing"}
+            {parseFloat(activeSem.gpa) >= 3.75
+              ? "★ Dean's Honor Roll"
+              : "In Good Standing"}
           </span>
         </div>
 
@@ -131,7 +134,9 @@ export default function CgpaTrendChart({
 
             {/* Data Points */}
             {points.map((p, i) => {
-              const isActive = activeSemIndex === i || (activeSemIndex === null && i === points.length - 1);
+              const isActive =
+                activeSemIndex === i ||
+                (activeSemIndex === null && i === points.length - 1)
               return (
                 <g
                   key={i}
@@ -159,7 +164,7 @@ export default function CgpaTrendChart({
                     S{p.sem.id}
                   </text>
                 </g>
-              );
+              )
             })}
           </svg>
         </div>
@@ -177,6 +182,6 @@ export default function CgpaTrendChart({
         </button>
       )}
     </Card>
-  );
+  )
 }
-export { CgpaTrendChart };
+export { CgpaTrendChart }

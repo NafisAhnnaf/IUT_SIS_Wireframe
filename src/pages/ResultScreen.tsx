@@ -9,7 +9,7 @@ import {
 } from "../components/SharedUI"
 import { IcoChevronDown, IcoPrinter } from "../components/Icons"
 
-export function ResultScreen() {
+export default function ResultScreen() {
   const [open, setOpen] = useState<Set<number>>(new Set([4, 3]))
 
   function toggle(id: number) {

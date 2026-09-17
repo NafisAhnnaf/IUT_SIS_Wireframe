@@ -10,7 +10,7 @@ import {
 import { IcoClock } from "../components/Icons"
 import { useToast } from "../context/ToastContext"
 
-export function LibraryScreen() {
+export default function LibraryScreen() {
   const { showToast } = useToast()
   const [currentBooks, setCurrentBooks] = useState(LIBRARY_CURRENT)
 

@@ -4,7 +4,7 @@ import { Card, PageHeader, SectionLabel } from "../components/SharedUI"
 import { IcoEdit, IcoCopy } from "../components/Icons"
 import { useToast } from "../context/ToastContext"
 
-export function ProfileScreen() {
+export default function ProfileScreen() {
   const { showToast } = useToast()
   const [editing, setEditing] = useState(false)
   const [form, setForm] = useState({

@@ -9,7 +9,7 @@ import {
 import { IcoStar, IcoClose } from "../components/Icons"
 import { useToast } from "../context/ToastContext"
 
-export function FeedbackScreen() {
+export default function FeedbackScreen() {
   const { showToast } = useToast()
   const [items, setItems] = useState(FEEDBACK_INIT)
   const [modal, setModal] = useState<number | null>(null)
